@@ -1,0 +1,22 @@
+[22-Dec-2021 07:52:03 UTC] PHP Fatal error:  Cannot redeclare Admin::allQuiz() in /home/m3xukpi5o84k/public_html/quiz_application/application/controllers/admin/Admin.php on line 68
+[22-Dec-2021 18:44:15 UTC] PHP Fatal error:  Cannot use [] for reading in /home/m3xukpi5o84k/public_html/quiz_application/application/controllers/admin/Admin.php on line 38
+[23-Dec-2021 10:27:25 UTC] PHP Fatal error:  Cannot redeclare get_instance() (previously declared in /home/m3xukpi5o84k/public_html/quiz_application/system/core/CodeIgniter.php:369) in /home/m3xukpi5o84k/public_html/quiz_application/application/helpers/common_helper.php on line 20
+[28-Dec-2021 08:58:07 UTC] PHP Fatal error:  Cannot use [] for reading in /home/m3xukpi5o84k/public_html/quiz_application/application/views/staff/profile.php on line 116
+[29-Dec-2021 08:41:03 UTC] PHP Fatal error:  Cannot redeclare Studentmodel::get_question_redirect() in /home/m3xukpi5o84k/public_html/quiz_application/application/models/Studentmodel.php on line 272
+[29-Dec-2021 08:41:19 UTC] PHP Fatal error:  Cannot redeclare Studentmodel::get_question_redirect() in /home/m3xukpi5o84k/public_html/quiz_application/application/models/Studentmodel.php on line 272
+[30-Dec-2021 12:33:51 UTC] PHP Fatal error:  Cannot redeclare Staff::allQuestions() in /home/m3xukpi5o84k/public_html/quiz_application/application/controllers/Staff.php on line 324
+[30-Dec-2021 12:34:42 UTC] PHP Fatal error:  Cannot redeclare Staff::allQuestions() in /home/m3xukpi5o84k/public_html/quiz_application/application/controllers/Staff.php on line 324
+[30-Dec-2021 12:39:23 UTC] PHP Fatal error:  Cannot redeclare Staff::addQuestions() in /home/m3xukpi5o84k/public_html/quiz_application/application/controllers/Staff.php on line 327
+[30-Dec-2021 13:08:34 UTC] PHP Fatal error:  Cannot redeclare Staff::getTopicList() in /home/m3xukpi5o84k/public_html/quiz_application/application/controllers/Staff.php on line 308
+[03-Jan-2022 04:52:54 UTC] PHP Fatal error:  Cannot redeclare AdminModel::getTotalActiveQuizList() in /home/m3xukpi5o84k/public_html/quiz_application/application/models/AdminModel.php on line 625
+[03-Jan-2022 06:28:18 UTC] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /home/m3xukpi5o84k/public_html/quiz_application/application/controllers/Admin.php on line 110
+[04-Jan-2022 08:00:58 UTC] PHP Fatal error:  Cannot declare class AdminModel, because the name is already in use in /home/m3xukpi5o84k/public_html/quiz_application/application/models/Staff_model.php on line 848
+[06-Jan-2022 10:53:03 UTC] PHP Fatal error:  Cannot redeclare Staff::dashboard() in /home/m3xukpi5o84k/public_html/quiz_application/application/controllers/Staff.php on line 64
+[06-Jan-2022 11:39:45 UTC] PHP Fatal error:  Cannot use temporary expression in write context in /home/m3xukpi5o84k/public_html/quiz_application/application/controllers/Student.php on line 626
+[06-Jan-2022 11:57:05 UTC] PHP Fatal error:  Cannot use temporary expression in write context in /home/m3xukpi5o84k/public_html/quiz_application/application/controllers/Student.php on line 626
+[21-Jan-2022 07:39:32 UTC] PHP Warning:  Unterminated comment starting line 821 in /home/m3xukpi5o84k/public_html/quiz_application/application/controllers/Student.php on line 821
+[21-Jan-2022 07:40:36 UTC] PHP Warning:  Unterminated comment starting line 821 in /home/m3xukpi5o84k/public_html/quiz_application/application/controllers/Student.php on line 821
+[31-Jan-2022 09:12:08 UTC] PHP Fatal error:  Cannot use [] for reading in /home/m3xukpi5o84k/public_html/quiz_application/application/views/student/quiz_screenn.php on line 9
+[04-Apr-2022 08:52:40 UTC] PHP Fatal error:  Cannot redeclare AdminModel::fetchAllCourse() in /home/m3xukpi5o84k/public_html/quiz_application/application/models/AdminModel.php on line 140
+[11-Apr-2022 10:17:56 UTC] PHP Fatal error:  Cannot redeclare Studentmodel::getQuizResult() in /home/m3xukpi5o84k/public_html/quiz_application/application/models/Studentmodel.php on line 922
+[11-Apr-2022 11:39:44 UTC] PHP Fatal error:  Cannot redeclare Student::quiz_result() in /home/m3xukpi5o84k/public_html/quiz_application/application/controllers/Student.php on line 1070
