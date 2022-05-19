@@ -1025,6 +1025,9 @@ class Student extends CI_Controller {
 // 		
 		$data=array();
 		$no = $_POST['start']+1;
+// 		echo "<pre>";
+// 		print_r($allstudents);
+// 		exit();
 		foreach ($allstudents as $key => $admindata)
 		{
 			$row[]=array();
@@ -1040,7 +1043,10 @@ class Student extends CI_Controller {
                $sorts['finalscore'][$key] = $admindata->finalscore;
 
 			$row["finalscore"]= round($admindata->finalscore,2);
-		    $row['action'] = '<img class="animation__shake" src="https://kingsinternational.academy/quiz_application/assets/img/trophy.jpg" height="60" width="60">';
+			$row['tropy']= '<img class="animation__shake" src="https://kingsinternational.academy/quiz_application/assets/img/trophy.jpg" height="60" width="60">';
+		    $row['action'] = '<td><a href="'.base_url('student/quiz_result/').$admindata->quiz_id.'/'.$admindata->attempts.'" class="btn btn-sm btn-info">
+                                        <i class="fa fa-eye" aria-hidden="true"></i>View
+                                    </a></td>';
 			$data[]=$row;
 			$no++;
 		}

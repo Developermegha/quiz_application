@@ -273,7 +273,8 @@ var timer2 = "<?php echo $quizinfo->quiz_total_time; ?>:01";
               question_data+='<div class="quetionNoList"><ul>'+quetionNoList+'</ul></div>'+
                             '<div class="quetionWrap">'+
                             '<h4>' +questiontext+ +''+ +counterOfQuestion+ ') ' +obj[0].question+'</h4>'+
-                          //  '<div class="imageWrap"><img src="https://kingsinternational.academy/quiz_application/uploads/'+obj[0].image_question+'" class="img-fluid" "></div>'+
+                            //   '<div class="imageWrap"><img src="https://kingsinternational.academy/quiz_application/uploads/'+obj[0].image_question+'" class="img-fluid"  alt=""></div>'+
+                            
                             '</div>'+
                             '<input type = "hidden" id = "hiddenquestionPrimaryId" name = "hiddenquestionPrimaryId" value = "'+obj[0].quizprimaryId+'">'+
                             '<div class="optionWrap">'+
@@ -282,22 +283,22 @@ var timer2 = "<?php echo $quizinfo->quiz_total_time; ?>:01";
                                         '<input type="radio" id = "optionA"   name="radio-group" onchange="getRadioButtonValue($(this).val())" value = "'+obj[0].option_1+'" '+(selectedAns === obj[0].option_1 ? 'checked' : '')+'> <label for="optionA">A</label>'+
                                         '<p>'+obj[0].option_1+'</p>'+
                                    '</li>'+
-                                //   '<div class="imageWrap"><img src="https://kingsinternational.academy/quiz_application/uploads/'+obj[0].image_option_1+'" class="img-fluid" "></div>'+
+                                //   '<div class="imageWrap"><img src="https://kingsinternational.academy/quiz_application/uploads/'+obj[0].image_option_1+'" class="img-fluid"  alt=""></div>'+
                                     '<li>'+
                                         '<input type="radio" id = "optionB"  name="radio-group" onchange="getRadioButtonValue($(this).val())" value = "'+obj[0].option_2+'" '+(selectedAns === obj[0].option_2 ? 'checked' : '')+'> <label for="optionB">B</label>'+
                                         '<p>'+obj[0].option_2+'</p>'+
                                     '</li>'+
-                                    // '<div class="imageWrap"><img src="https://kingsinternational.academy/quiz_application/uploads/'+obj[0].image_option2+'" class="img-fluid" "></div>'+
+                                    // '<div class="imageWrap"><img src="https://kingsinternational.academy/quiz_application/uploads/'+obj[0].image_option2+'" class="img-fluid" alt=""></div>'+
                                     '<li>'+
                                         '<input type="radio" id = "optionC"  name="radio-group" onchange="getRadioButtonValue($(this).val())" value = "'+obj[0].option_3+'" '+(selectedAns === obj[0].option_3 ? 'checked' : '')+'><label for="optionC">C</label>'+
                                         '<p>'+obj[0].option_3+'</p>'+
                                     '</li>'+
-                                    // '<div class="imageWrap"><img src="https://kingsinternational.academy/quiz_application/uploads/'+obj[0].image_option3+'" class="img-fluid" "></div>'+
+                                    // '<div class="imageWrap"><img src="https://kingsinternational.academy/quiz_application/uploads/'+obj[0].image_option3+'" class="img-fluid" alt=""></div>'+
                                     '<li>'+
                                         '<input type="radio"  id = "optionD"  name="radio-group" onchange="getRadioButtonValue($(this).val())" value = "'+obj[0].option_4+'" '+(selectedAns === obj[0].option_4 ? 'checked' : '')+'>  <label for="optionD">D</label>'+
                                         '<p>'+obj[0].option_4+'</p>'+
                                     '</li>'+
-                                    // '<div class="imageWrap"><img src="https://kingsinternational.academy/quiz_application/uploads/'+obj[0].image_option4+'" class="img-fluid" "></div>'+
+                                    // '<div class="imageWrap"><img src="https://kingsinternational.academy/quiz_application/uploads/'+obj[0].image_option4+'" class="img-fluid" alt=""></div>'+
                                 '</ul>'+
                             '</div>'+
                             '<div class="ctaWrapper">'+
@@ -385,6 +386,7 @@ var timer2 = "<?php echo $quizinfo->quiz_total_time; ?>:01";
         
                 
         var answer = $("input[name='radio-group']:checked").val();
+        alert(answer);
           for (var i = 0; i < TotalNumberOfQuestion; i++) {
                   var counter = i + 1;
                   console.log(nextquestionseq);
@@ -412,7 +414,7 @@ var timer2 = "<?php echo $quizinfo->quiz_total_time; ?>:01";
                 question_data+='<div class="quetionNoList"><ul>'+quetionNoList+'</ul></div>'+
                             '<div class="quetionWrap">'+
                             '<h4>' +questiontext+ +''+ +nextquestionseq+ ') '+obj[0].question+'</h4>'+
-                            '<div class="imageWrap"><img src="https://kingsinternational.academy/quiz_application/uploads/'+obj[0].image_question+'" class="img-fluid" "></div>'+
+                            // '<div class="imageWrap"><img src="https://kingsinternational.academy/quiz_application/uploads/'+obj[0].image_question+'" class="img-fluid" "></div>'+
                             
                             '</div>'+
                             '<div class="optionWrap">'+
@@ -648,25 +650,25 @@ var timer2 = "<?php echo $quizinfo->quiz_total_time; ?>:01";
     
     /*
     */
-    function updatetimerCountDownSubmitAnswer(){
-      var quizPrimaryId  =  $("#updatePrimaryId").val();
-      var submitedAnswer =  $("#updatePrimaryId").attr('updateSubmitAnswer');
+    // function updatetimerCountDownSubmitAnswer(){
+    //   var quizPrimaryId  =  $("#updatePrimaryId").val();
+    //   var submitedAnswer =  $("#updatePrimaryId").attr('updateSubmitAnswer');
     
-      console.log(submitedAnswer);
-      $('#timerCountDownModal').modal('hide');  
+    //   console.log(submitedAnswer);
+    //   $('#timerCountDownModal').modal('hide');  
     
-      $.ajax({
-      url: "<?php echo base_url()?>student/updatetimerCountDownSubmitAnswer",
-      type: "POST",
-      data: { quizPrimaryId:quizPrimaryId,
-              submitedAnswer:submitedAnswer
-             },
-            success: function(data){
-              var obj =  JSON.parse(data);
-             window.location.href = "<?php echo base_url('student/quizlist'); ?>"
-            }
-        });
-    }
+    //   $.ajax({
+    //   url: "<?php echo base_url()?>student/updatetimerCountDownSubmitAnswer",
+    //   type: "POST",
+    //   data: { quizPrimaryId:quizPrimaryId,
+    //           submitedAnswer:submitedAnswer
+    //          },
+    //         success: function(data){
+    //           var obj =  JSON.parse(data);
+    //         //  window.location.href = "<?php echo base_url('student/quizlist'); ?>"
+    //         }
+    //     });
+    // }
 
 </script>
 

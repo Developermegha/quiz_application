@@ -321,7 +321,9 @@
                         </tr>
                         </thead>
                         <tbody>
-                            <?php $second = $activeQuiz[0]->name;?>
+                            <?php $second = $activeQuiz[0]->name;
+                            
+                            $second_id = $activeQuiz[0]->id?>
                             <?php foreach($activeQuiz as $key => $value){?>
                             <tr>
                                 <?php
@@ -450,7 +452,7 @@
           title          : '<?php echo $second;?>',
           start          : new Date(y, m, d),
           end            : new Date(y, m, d+5),
-          url            : 'https://www.google.com/',
+          url            : 'https://kingsinternational.academy/quiz_application/student/quiz_screen/<?php echo $second_id;?>',
           backgroundColor: '#28a745', //Primary (light-blue)
           borderColor    : '#28a745' //Primary (light-blue)
         }

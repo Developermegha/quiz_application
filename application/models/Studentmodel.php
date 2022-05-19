@@ -318,7 +318,7 @@ class Studentmodel extends CI_Model{
     
     
     public function getQuizResult($studentid){
-      
+$result= array();
             $this->db->select('*');
             $this->db->from('quiz');
             $this->db->where('student_id',$studentid);
@@ -429,15 +429,18 @@ class Studentmodel extends CI_Model{
     
        $this->db->select('questionset.*, quiz.id as quizprimaryId,quiz.selected_answer,quiz.mark_for_review');
        $this->db->from('questionset', 'quiz');
-       $this->db->join('quiz', 'quiz.quiz_id = questionset.quiz_id');
-        //  $this->db->join('quiz_images','quiz_images.question_id = quiz.qset_id','LEFT');
+       $this->db->join('quiz', 'quiz.quiz_id = questionset.quiz_id AND quiz.qset_id = questionset.id');
+    //   $this->db->join('quiz_images','quiz_images.question_id = quiz.qset_id AND quiz.qset_id = questionset.id');
        $this->db->where('student_id', $StudentSessionId);
     //   $this->db->where_not_in('questionset.id',$questionId);
       $this->db->where('questionset.quiz_id',$quizId);
        $this->db->where_not_in('quiz.status',1);
+    $this->db->order_by('questionset.id','asc');
        $this->db->limit(1, $offset);
+       
        $query = $this->db->get(); 
-        // echo $this->db->last_query();
+        //  echo $this->db->last_query();
+        
        return  $query->result_array();  
     
     }
@@ -445,7 +448,15 @@ class Studentmodel extends CI_Model{
     
     public function get_question_prev($questionId , $quizId, $submitedAnswer,$pageId, $quizPrimaryId){
     
+    // if($pageId == 1){
+    //     // $offset = 1;
+    // }else if($pageId == 3){
+    //     $offset = 1;
+    // }else{
+        
+    // }
         $offset = ( $pageId - 1) * 1;
+        // $offset =  1;
       
         $StudentSessionId         = $this->session->userdata['id'];   
     
@@ -459,18 +470,21 @@ class Studentmodel extends CI_Model{
            $this->db->update('quiz');  
        }
        
-       $this->db->select('questionset.* ,quiz_images.*, quiz.id as quizprimaryId,quiz.selected_answer,quiz.mark_for_review');
+    //   $this->db->select('questionset.* ,quiz_images.*, quiz.id as quizprimaryId,quiz.selected_answer,quiz.mark_for_review');
+    $this->db->select('questionset.* , quiz.id as quizprimaryId,quiz.selected_answer,quiz.mark_for_review');
        $this->db->from('questionset', 'quiz');
-       $this->db->join('quiz', 'quiz.quiz_id = questionset.quiz_id');
-    $this->db->join('quiz_images','quiz_images.question_id = quiz.qset_id','LEFT');
+       //$this->db->join('quiz', 'quiz.quiz_id = questionset.quiz_id');
+       $this->db->join('quiz', 'quiz.quiz_id = questionset.quiz_id AND quiz.qset_id = questionset.id');
+    //   $this->db->join('quiz_images','quiz_images.question_id = quiz.qset_id AND quiz.qset_id = questionset.id');
+        // $this->db->join('quiz_images','quiz_images.question_id = quiz.qset_id','LEFT');
        $this->db->where('student_id', $StudentSessionId);
         $this->db->where('questionset.quiz_id',$quizId);
        $this->db->where_not_in('quiz.status',1);
-       $this->db->order_by('questionset.id','asc');
+      $this->db->order_by('questionset.id','asc');
         $this->db->limit(1, $offset);
-    
+    // $this->db->order_by('quiz.id','asc');
        $query = $this->db->get();  
-    // echo $this->db->last_query();
+    //  echo $this->db->last_query();
        return  $query->result_array(); 
     
     }
@@ -762,7 +776,7 @@ class Studentmodel extends CI_Model{
      
 	public function _get_datatables_query()
 	{
-	$this->db->select('u.*,sqr.quiz_id,sqr.correct_ans,sqr.incorrect_ans,sqr.unanswered,qm.name as quiz_name');
+	$this->db->select('u.*,sqr.quiz_id,sqr.correct_ans,sqr.incorrect_ans,sqr.unanswered,qm.name as quiz_name,sqr.attempts');
 	$this->db->from('user as u');
 	$this->db->join('student_quiz_result as sqr','sqr.student_id = u.id','LEFT');
 	$this->db->join('quiz_master as qm','qm.id = sqr.quiz_id','LEFT');

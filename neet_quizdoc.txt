@@ -1,0 +1,36 @@
+Neet Quiz
+
+
+Flow of neet Quiz
+
+---> first ajax call of set_question 
+      --> which return the quiz first question with options and with correct  ans
+
+NEXT Button click
+---> select the ans of it and click on next question then
+     --> questionSequence ajax call is called will return the first question set 
+
+     --> after that the get_question_prev_next ajax call  with pass the form element like 
+       --> quiz_id , buttonaction , pageid --as  the second question of quiz so 2, and with selected answer for the first question
+        --> with quizprimaryid and questionid
+
+      --> return the    
+
+      --->next query is like
+      --> SELECT `questionset`.*, `quiz`.`id` as `quizprimaryId`, `quiz`.`selected_answer`, `quiz`.`mark_for_review` 
+      FROM `questionset` JOIN `quiz` ON `quiz`.`quiz_id` = `questionset`.`quiz_id` AND `quiz`.`qset_id` = `questionset`.`id` 
+      WHERE `student_id` = '2' 
+      AND `questionset`.`quiz_id` = '17' AND `quiz`.`status` NOT IN(1) 
+      ORDER BY `questionset`.`id` ASC 
+      LIMIT 1, 1
+
+
+      -> after the prev_next call the updatequestuon pallet ajax call is calles i
+      in that as per the quizprimaryId the status is update in quiz table and in question pallterthe color is been set
+
+
+PREVIOUR Button click
+  same as next button click
+  
+
+    

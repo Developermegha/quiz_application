@@ -97,6 +97,7 @@
 						<th>User</th>
 						<th>Rank</th>
 						<th>Score</th>
+						<th>Action</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -121,6 +122,9 @@
 						$finalresult=($correctMarks-$totalNegmarks); 
 						?>
 						<td><?php echo $finalresult; ?></td>
+						<td><a href="<?php echo base_url(); ?>" class="btn btn-sm btn-info">
+                                        <i class="fa fa-eye" aria-hidden="true"></i>View
+                                    </a></td>
 						
 					</tr>
 					<?php } ?>

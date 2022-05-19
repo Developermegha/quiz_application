@@ -57,6 +57,8 @@
                     
                     <th>Score</th>
                     <th></th>
+                    <th>Action</th>
+                    
                   </tr>
                   </thead>
                   <tbody>
@@ -128,6 +130,7 @@
                         { data: "full_name",orderable: true,name:"full_name"},
                         { data: "quiz_name",orderable: true,name:"quiz_name"},
                         { data: "finalscore",orderable: false,name:"finalscore"},
+                        { data: "tropy",orderable: false,name:"tropy"},
                         { data: "action",orderable: false,name:"action"},
                     ],
                     fnServerParams: function(data) {

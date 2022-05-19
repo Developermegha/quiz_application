@@ -937,7 +937,7 @@ class AdminModel extends CI_Model
         $this->db->join('quiz_master','quiz_master.id=quiz.quiz_id');
         $this->db->join('course','course.id=quiz_master.course_id');
         $this->db->join('topics','topics.id=quiz_master.topic_id');
-        $this->db->where('quiz.student_id',$studentid);
+        // $this->db->where('quiz.student_id',$studentid);
         $this->db->where('quiz.quiz_id',$quizId);
         $this->db->where('quiz.attempt',$attempt);
         

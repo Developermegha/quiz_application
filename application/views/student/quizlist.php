@@ -24,7 +24,7 @@
       <div class="card card-solid">
         <div class="card-body pb-0">
           <div class="row">
-              <?php if($quizlist) {
+              <?php if(!empty($quizlist)) {
               foreach($quizlist as $key => $value){
               ?>
             <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
@@ -41,9 +41,11 @@
                         <li class="small"><span class="fa-li"><i class="fa fa-question-circle" aria-hidden="true"></i></span> No. of Question : <?php echo $value->number_of_questions; ?></li>
                         <li class="small"><span class="fa-li"><i class="fa fa-calendar" aria-hidden="true"></i></span>Start time : <?php echo $value->quiz_start_time; ?></li>
                         <li class="small"><span class="fa-li"><i class="fa fa-calendar" aria-hidden="true"></i></span>End time : <?php echo $value->quiz_end_time; ?></li> 
-                    <!-- <li class="small"><span class="fa-li"><i class="fa fa-calendar" aria-hidden="true"></i></span>-->
+                  
                      <?php  
-                    // print_r($value->id);
+                    
+                    if(isset($quizresult) && !empty($quizresult)){
+                        
                     
                      foreach ($quizresult as $qzesult)
                      {
@@ -55,7 +57,8 @@
                      
                      // exit;  
                      }
-                      if($qzesult['quiz_id'] == $value->id)
+                    } 
+                      if( !empty($quizresult) && $qzesult['quiz_id'] == $value->id)
                       {
                           ?>
                          
